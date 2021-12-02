@@ -2,7 +2,7 @@
 
 void Day1Part1()
 {
-  vector<string> input = read_file("input.txt"); // Changed from aoc/day-1/input.txt to input.txt
+  vector<string> input = read_file("input.txt");
   int answer = 0;
 
   cout << "The answer is " << answer << endl;
