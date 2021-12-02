@@ -1,6 +1,6 @@
 # Hey
 
-Hello reader, I am Sanjaay, also known as Whippingdot, who likes coding. I am a kid who is still learning, but eh I try to do challenges too. This is my second year of [AOC](https://adventofcode.com/).
+Hello reader, I am Sanjaay, also known as Whippingdot, who likes coding. I am a kid who is still learning, but eh I try to do challenges too. This is my second year of [AOC](https://adventofcode.com/). I do the AOC challenges in C++ by the way!
 
 ## Last Year
 
