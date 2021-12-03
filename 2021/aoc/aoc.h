@@ -5,15 +5,15 @@
 #include <map>
 #include <chrono>
 
-#define cout std::cout
-#define cin std::cin
-#define endl std::endl
-#define getline std::getline
-#define vector std::vector
-#define map std::map
-#define stoi std::stoi
-typedef std::string string;
-typedef std::fstream fstream;
+using std::cout;
+using std::cin;
+using std::endl;
+using std::getline;
+using std::vector;
+using std::map;
+using std::stoi;
+using std::string;
+using std::fstream;
 
 vector<string> read_file(string name)
 {
