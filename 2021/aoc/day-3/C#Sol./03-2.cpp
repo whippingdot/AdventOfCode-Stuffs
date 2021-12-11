@@ -1,4 +1,4 @@
-#include "../aoc.h"
+#include "../../aoc.h"
 
 vector<int> Filter(vector<int> nums, int place, bool co2 = false) {
 	vector<int> filtered = vector<int>();

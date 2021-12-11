@@ -1,4 +1,4 @@
-#include "../aoc.h"
+#include "../../aoc.h"
 
 void Day3Part1()
 {
