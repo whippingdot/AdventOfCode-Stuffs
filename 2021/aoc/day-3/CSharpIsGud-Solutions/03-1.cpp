@@ -2,56 +2,61 @@
 
 void Day3Part1()
 {
-	vector<string> input = read_file("input.txt");
-  
-	vector<int> nums = vector<int>();
+  vector<string> input = read_file("input.txt");
 
-	for (string str : input) {
-		nums.push_back(stoi(str, 0, 2));
-	}
+  vector<int> nums = vector<int>();
 
-	int bit = 0;
+  for (string str : input)
+  {
+    nums.push_back(stoi(str, 0, 2));
+  }
 
-	char gammabits[12];
+  int bit = 0;
 
-	char epsilonbits[12];
+  char gammabits[12];
 
-	for (int i = 11; i >= 0; i--) {
-		int set = 0;
-		int unset = 0;
+  char epsilonbits[12];
 
-		for (int num : nums) {
-			if (num & (1 << i))
-				set++;
-			else
-				unset++;
-		}
+  for (int i = 11; i >= 0; i--)
+  {
+    int set = 0;
+    int unset = 0;
 
-		gammabits[11 - i] = set > unset ? '1' : '0';
+    for (int num : nums)
+    {
+      if (num & (1 << i))
+        set++;
+      else
+        unset++;
+    }
 
-		epsilonbits[11 - i] = set < unset ? '1' : '0';
-	}
+    gammabits[11 - i] = set > unset ? '1' : '0';
 
-	// Converting bits to a string for stoi
-	string str = "";
+    epsilonbits[11 - i] = set < unset ? '1' : '0';
+  }
 
-	for (int i = 0; i < 12; i++) {
-		str += gammabits[i];
-	}
+  // Converting bits to a string for stoi
+  string str = "";
 
-	int gamma = stoi(str, 0, 2);
+  for (int i = 0; i < 12; i++)
+  {
+    str += gammabits[i];
+  }
 
-	str = "";
+  int gamma = stoi(str, 0, 2);
 
-	for (int i = 0; i < 12; i++) {
-		str += epsilonbits[i];
-	}
+  str = "";
 
-	int epsilon = stoi(str, 0, 2);
+  for (int i = 0; i < 12; i++)
+  {
+    str += epsilonbits[i];
+  }
 
-	cout << "Gamma: "  << gamma << "\n";
-	
-	cout << "Epsilon: " << epsilon << "\n";
+  int epsilon = stoi(str, 0, 2);
+
+  cout << "Gamma: " << gamma << "\n";
+
+  cout << "Epsilon: " << epsilon << "\n";
 }
 
 int main()

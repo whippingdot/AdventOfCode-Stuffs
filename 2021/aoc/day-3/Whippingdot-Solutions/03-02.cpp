@@ -5,7 +5,8 @@ vector<string> removeIfLower(int i, char lowerNumber, vector<string> input)
   vector<string>::iterator iterator;
   vector<string> fakeInput = input;
   vector<char> characters = vector<char>();
-  vector<int> remover = vector<int>();
+  // vector<int> remover = vector<int>(); - Why is this not working
+  vector<string> remover = vector<string>();
 
   int funcCounter = 0;
 
@@ -19,7 +20,8 @@ vector<string> removeIfLower(int i, char lowerNumber, vector<string> input)
     if (characters[i] == lowerNumber)
     {
       iterator = find(input.begin(), input.end(), line);
-      remover.push_back((iterator - funcCounter) - input.begin());
+      // remover.push_back((iterator - funcCounter) - input.begin()); - BRUHH
+      remover.push_back(line);
     }
   }
 
@@ -28,13 +30,13 @@ vector<string> removeIfLower(int i, char lowerNumber, vector<string> input)
     input.clear();
     for (int debugVar = 0; debugVar < fakeInput.size(); debugVar++)
     {
-      if (fakeInput[debugVar] != fakeInput[remover[x]])
+      if (fakeInput[debugVar] != remover[x])
       {
         input.push_back(fakeInput[debugVar]);
       }
     }
     fakeInput = input;
-    // input.erase(input.begin() - remover[x]); - Why is this not working
+    // input.erase(input.begin() - remover[x]); - This too!
   }
 
   return input;
@@ -45,7 +47,7 @@ vector<string> removeIfGreater(int i, char greaterNumber, vector<string> input)
   vector<string>::iterator iterator;
   vector<string> fakeInput = input;
   vector<char> characters = vector<char>();
-  vector<int> remover = vector<int>();
+  vector<string> remover = vector<string>();
 
   int funcCounter = 0;
 
@@ -59,7 +61,7 @@ vector<string> removeIfGreater(int i, char greaterNumber, vector<string> input)
     if (characters[i] == greaterNumber)
     {
       iterator = find(input.begin(), input.end(), line);
-      remover.push_back((iterator - funcCounter) - input.begin());
+      remover.push_back(line);
     }
   }
 
@@ -68,7 +70,7 @@ vector<string> removeIfGreater(int i, char greaterNumber, vector<string> input)
     input.clear();
     for (int debugVar = 0; debugVar < fakeInput.size(); debugVar++)
     {
-      if (fakeInput[debugVar] != fakeInput[remover[x]])
+      if (fakeInput[debugVar] != remover[x])
       {
         input.push_back(fakeInput[debugVar]);
       }
@@ -213,8 +215,8 @@ void Day3Part2()
     counter++;
   }
 
-  cout << "Oxygen Rating: " << o2_rating << endl;
-  cout << "Carbon Dioxide Rating: " << co2_rating << endl;
+  cout << "Oxygen before conversion: " << o2_input[0] << "\nOxygen Rating: " << o2_rating << endl;
+  cout << "Carbon Dioxide before conversion: " << co2_input[0] << "\nCarbon Dioxide Rating: " << co2_rating << endl;
 
   answer = o2_rating * co2_rating;
 

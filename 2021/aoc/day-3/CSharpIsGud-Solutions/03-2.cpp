@@ -1,76 +1,84 @@
 #include "../../aoc.h"
 
-vector<int> Filter(vector<int> nums, int place, bool co2 = false) {
-	vector<int> filtered = vector<int>();
+vector<int> Filter(vector<int> nums, int place, bool co2 = false)
+{
+  vector<int> filtered = vector<int>();
 
-	int set = 0;
-	int unset = 0;
+  int set = 0;
+  int unset = 0;
 
-	place = 11 - place;
+  place = 11 - place;
 
-	for (int num : nums) {
-		if (num & (1 << place))
-			set++;
-		else
-			unset++;
-	}
+  for (int num : nums)
+  {
+    if (num & (1 << place))
+      set++;
+    else
+      unset++;
+  }
 
-	bool check = set >= unset;
+  bool check = set >= unset;
 
-	if (co2)
-		check = set < unset;
+  if (co2)
+    check = set < unset;
 
-	for (int num : nums) {
-		if (num & (1 << place) && check)
-			filtered.push_back(num);
-		else if (! (num & (1 << place)) && ! check)
-			filtered.push_back(num);
-	}
+  for (int num : nums)
+  {
+    if (num & (1 << place) && check)
+      filtered.push_back(num);
+    else if (!(num & (1 << place)) && !check)
+      filtered.push_back(num);
+  }
 
-	return filtered;
+  return filtered;
 }
 
 void Day3Part2()
 {
-	vector<string> input = read_file("input.txt");
-  
-	vector<int> nums = vector<int>();
+  vector<string> input = read_file("input.txt");
 
-	for (string str : input) {
-		nums.push_back(stoi(str, 0, 2));
-	}
+  vector<int> nums = vector<int>();
 
-	vector<int> full = nums;
+  for (string str : input)
+  {
+    nums.push_back(stoi(str, 0, 2));
+  }
 
-	int oxygenrating;
+  vector<int> full = nums;
 
-	int co2rating;
+  int oxygenrating;
 
-	for (int i = 0; i < 12; i++) {
-		nums = Filter(nums, i);
+  int co2rating;
 
-		if (nums.size() == 1) {
-			oxygenrating = nums[0];
+  for (int i = 0; i < 12; i++)
+  {
+    nums = Filter(nums, i);
 
-			break;
-		}
-	}
+    if (nums.size() == 1)
+    {
+      oxygenrating = nums[0];
 
-	nums = full;
+      break;
+    }
+  }
 
-	for (int i = 0; i < 12; i++) {
-		nums = Filter(nums, i, true);
+  nums = full;
 
-		if (nums.size() == 1) {
-			co2rating = nums[0];
+  for (int i = 0; i < 12; i++)
+  {
+    nums = Filter(nums, i, true);
 
-			break;
-		}
-	}
+    if (nums.size() == 1)
+    {
+      co2rating = nums[0];
 
-	cout << "Oxygen rating: " << oxygenrating << "\n";
-	
-	cout << "CO2 rating: " << co2rating << "\n";
+      break;
+    }
+  }
+
+  cout << "Oxygen rating: " << oxygenrating << "\n";
+
+  cout << "CO2 rating: " << co2rating << "\n";
 }
 
 int main()
