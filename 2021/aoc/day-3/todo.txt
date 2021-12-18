@@ -1,0 +1,2 @@
+Welcome Back:
+- For the CO2 rating, it will always delete the last value if it ends early because the default value for deletion is 0 and so 0 will get deleted - and in this case 0 being the last value left. You have to add a stopper!
