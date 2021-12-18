@@ -1,19 +1,22 @@
 #include <iostream>
 #include <string>
-#include <fstream>
+#include <cmath>
 #include <vector>
 #include <map>
 #include <chrono>
+#include <fstream>
+#include <algorithm>
 
-using std::cout;
-using std::cin;
-using std::endl;
-using std::getline;
-using std::vector;
-using std::map;
-using std::stoi;
-using std::string;
-using std::fstream;
+#define cout std::cout
+#define cin std::cin
+#define endl std::endl
+#define getline std::getline
+#define vector std::vector
+#define map std::map
+#define stoi std::stoi
+#define find std::find
+typedef std::string string;
+typedef std::fstream fstream;
 
 vector<string> read_file(string name)
 {
