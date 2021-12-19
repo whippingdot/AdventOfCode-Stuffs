@@ -1,6 +1,6 @@
 # Bash script for compiling
 
-cd 2021/aoc/day-3/C#Sol.
+cd 2021/aoc/day-3/Whippingdot-Solutions
 
 # g++ 03-1.cpp -o 03-1.exe && ./03-1.exe
 

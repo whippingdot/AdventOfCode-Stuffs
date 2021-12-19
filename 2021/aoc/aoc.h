@@ -7,16 +7,16 @@
 #include <fstream>
 #include <algorithm>
 
-#define cout std::cout
-#define cin std::cin
-#define endl std::endl
-#define getline std::getline
-#define vector std::vector
-#define map std::map
-#define stoi std::stoi
-#define find std::find
-typedef std::string string;
-typedef std::fstream fstream;
+using std::cin;
+using std::cout;
+using std::endl;
+using std::find;
+using std::fstream;
+using std::getline;
+using std::map;
+using std::stoi;
+using std::string;
+using std::vector;
 
 vector<string> read_file(string name)
 {
