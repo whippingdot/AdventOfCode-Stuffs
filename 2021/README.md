@@ -11,3 +11,5 @@ Also, I have not touched last year's code - therefor error messages and random R
 ## Running the Files
 
 For some reason whenever I run last year's programs (I haven't tried this year's yet) on replit it works, but on VSCode nothing works. I was using [@Coder100](https://replit.com/@Coder100) 's way of running the program last year in which it tells you how long it took the run the program and it also let you run any of the days by just uncommenting a line, but as I said on VSCode this does not work and this year I am using VSCode so for now I have gave up on using that method and I am just running the files separately. If you could help me fix the problem with running the files I would really appreciate it!
+
+UPDATE: There has now been a bash script added called 'Compile.sh'. You can run this script using `bash Compile.sh` after going into the 'aoc' folder of 2021. You can continuously change the name of the file being run in that bash file to run different files.

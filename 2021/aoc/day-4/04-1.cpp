@@ -1,60 +1,68 @@
 #include "../aoc.h"
 
-void Day4Part1()
+void Day4Part2()
 {
   vector<string> input = read_file("input.txt");
   int answer = 0;
-  int lineNumber = 0;
 
-  string line1 = "";
-  string line2 = "";
-  string line3 = "";
-  string line4 = "";
-  string line5 = "";
+  int lineCounter = 0;
+  int charCounter = 0;
+  int sheetHelperCounter = 0;
+
+  int bingoSheets[100][5][5];
+
+  vector<char> charVector = vector<char>();
+  vector<int> bingoNumbers = vector<int>();
 
   for (string &line : input)
   {
-    if (line == "94,21,58,16,4,1,44,6,17,48,20,92,55,36,40,63,62,2,47,7,46,72,85,24,66,49,34,56,98,41,84,23,86,64,28,90,39,97,73,81,12,69,35,26,75,8,32,77,52,50,5,96,14,31,70,60,29,71,9,68,19,65,99,57,54,61,33,91,27,78,43,95,42,3,88,51,53,30,89,87,93,74,18,15,80,38,82,79,0,22,13,67,59,11,83,76,10,37,25,45")
+    if (sheetHelperCounter = 5)
     {
-      lineNumber++;
-      continue;
-    }
-    else if (line == "")
-    {
-      lineNumber++;
-      continue;
-    }
-    else if (line == " ") {
-  int array[5][5] = {[line1], [line2], [line3], [line4], [line5]};
+      sheetHelperCounter = 0;
     }
 
-    if (lineNumber % 6 == 3)
+    if (line == "\n")
     {
-      for (char &c : line)
+      continue;
+    }
+
+    if (lineCounter == 0)
+    {
+      for (char &character : line)
       {
-        if (c != ' ')
+        charVector.push_back(character);
+      }
+      for (int i = 0; i < charVector.size(); i++)
+      {
+        if ((i + 1) == charVector.size())
         {
-          line1 += (c - '0') + ", ";
+          continue;
+        }
+
+        if (i - 1 != -1)
+        {
+          if (charVector[i] == '1' || charVector[i] == '2' || charVector[i] == '3' || charVector[i] == '4' || charVector[i] == '5' || charVector[i] == '6' || charVector[i] == '7' || charVector[i] == '8' || charVector[i] == '9' && charVector[i + 1] == '1' || charVector[i + 1] == '2' || charVector[i + 1] == '3' || charVector[i + 1] == '4' || charVector[i + 1] == '5' || charVector[i + 1] == '6' || charVector[i + 1] == '7' || charVector[i + 1] == '8' || charVector[i + 1] == '9' && charVector[i - 1] == '1' || charVector[i - 1] == '2' || charVector[i - 1] == '3' || charVector[i - 1] == '4' || charVector[i - 1] == '5' || charVector[i - 1] == '6' || charVector[i - 1] == '7' || charVector[i - 1] == '8' || charVector[i - 1] == '9')
+          {
+            bingoNumbers.push_back(charVector[i] - '0');
+          }
+        }
+        else
+        {
+          if (!(charVector[i + 1] == '1' || charVector[i + 1] == '2' || charVector[i + 1] == '3' || charVector[i + 1] == '4' || charVector[i + 1] == '5' || charVector[i + 1] == '6' || charVector[i + 1] == '7' || charVector[i + 1] == '8' || charVector[i + 1] == '9'))
+          {
+          }
         }
       }
-      line1 = line;
     }
-    else if (lineNumber % 6 == 4)
+
+    charCounter = 0;
+    for (char &character : line)
     {
-      line2 = line;
+      bingoSheets[0][lineCounter][charCounter] = character;
+      charCounter++;
     }
-    else if (lineNumber % 6 == 5)
-    {
-      line3 = line;
-    }
-    else if (lineNumber % 6 == 0)
-    {
-      line4 = line;
-    }
-    else if (lineNumber % 6 == 1)
-    {
-      line5 = line;
-    }
+    lineCounter++;
+    sheetHelperCounter++;
   }
 
   cout << "The answer is " << answer << endl;
@@ -62,6 +70,6 @@ void Day4Part1()
 
 int main()
 {
-  Day4Part1();
+  Day4Part2();
   return 0;
 }
