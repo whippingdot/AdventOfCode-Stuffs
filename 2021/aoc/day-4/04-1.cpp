@@ -14,6 +14,10 @@ void Day4Part2()
   vector<char> charVector = vector<char>();
   vector<int> bingoNumbers = vector<int>();
 
+  string tempVal = "";
+  int iTempVal = 0;
+  char *str;
+
   for (string &line : input)
   {
     if (sheetHelperCounter = 5)
@@ -41,15 +45,40 @@ void Day4Part2()
 
         if (i - 1 != -1)
         {
-          if (charVector[i] == '1' || charVector[i] == '2' || charVector[i] == '3' || charVector[i] == '4' || charVector[i] == '5' || charVector[i] == '6' || charVector[i] == '7' || charVector[i] == '8' || charVector[i] == '9' && charVector[i + 1] == '1' || charVector[i + 1] == '2' || charVector[i + 1] == '3' || charVector[i + 1] == '4' || charVector[i + 1] == '5' || charVector[i + 1] == '6' || charVector[i + 1] == '7' || charVector[i + 1] == '8' || charVector[i + 1] == '9' && charVector[i - 1] == '1' || charVector[i - 1] == '2' || charVector[i - 1] == '3' || charVector[i - 1] == '4' || charVector[i - 1] == '5' || charVector[i - 1] == '6' || charVector[i - 1] == '7' || charVector[i - 1] == '8' || charVector[i - 1] == '9')
+          if ((charVector[i] == '1' || charVector[i] == '2' || charVector[i] == '3' || charVector[i] == '4' || charVector[i] == '5' || charVector[i] == '6' || charVector[i] == '7' || charVector[i] == '8' || charVector[i] == '9') && (charVector[i + 1] == '1' || charVector[i + 1] == '2' || charVector[i + 1] == '3' || charVector[i + 1] == '4' || charVector[i + 1] == '5' || charVector[i + 1] == '6' || charVector[i + 1] == '7' || charVector[i + 1] == '8' || charVector[i + 1] == '9'))
+          {
+            tempVal = charVector[i] + "" + charVector[i + 1];
+            cout << charVector[i] - '0' << endl;
+            cout << typeid(charVector[i + 1] - '0').name() << endl;
+            cout << tempVal << endl;
+
+            // iTempVal = stoi(tempVal);
+            bingoNumbers.push_back(iTempVal);
+          }
+          else if ((charVector[i] == '1' || charVector[i] == '2' || charVector[i] == '3' || charVector[i] == '4' || charVector[i] == '5' || charVector[i] == '6' || charVector[i] == '7' || charVector[i] == '8' || charVector[i] == '9') && !(charVector[i - 1] == '1' || charVector[i - 1] == '2' || charVector[i - 1] == '3' || charVector[i - 1] == '4' || charVector[i - 1] == '5' || charVector[i - 1] == '6' || charVector[i - 1] == '7' || charVector[i - 1] == '8' || charVector[i - 1] == '9'))
           {
             bingoNumbers.push_back(charVector[i] - '0');
+          }
+          else
+          {
+            continue;
           }
         }
         else
         {
-          if (!(charVector[i + 1] == '1' || charVector[i + 1] == '2' || charVector[i + 1] == '3' || charVector[i + 1] == '4' || charVector[i + 1] == '5' || charVector[i + 1] == '6' || charVector[i + 1] == '7' || charVector[i + 1] == '8' || charVector[i + 1] == '9'))
+          if ((charVector[i] == '1' || charVector[i] == '2' || charVector[i] == '3' || charVector[i] == '4' || charVector[i] == '5' || charVector[i] == '6' || charVector[i] == '7' || charVector[i] == '8' || charVector[i] == '9') && (charVector[i + 1] == '1' || charVector[i + 1] == '2' || charVector[i + 1] == '3' || charVector[i + 1] == '4' || charVector[i + 1] == '5' || charVector[i + 1] == '6' || charVector[i + 1] == '7' || charVector[i + 1] == '8' || charVector[i + 1] == '9'))
           {
+            tempVal = charVector[i] + charVector[i + 1];
+            // iTempVal = stoi(tempVal);
+            bingoNumbers.push_back(iTempVal);
+          }
+          else if (charVector[i] == '1' || charVector[i] == '2' || charVector[i] == '3' || charVector[i] == '4' || charVector[i] == '5' || charVector[i] == '6' || charVector[i] == '7' || charVector[i] == '8' || charVector[i] == '9')
+          {
+            bingoNumbers.push_back(charVector[i] - '0');
+          }
+          else
+          {
+            continue;
           }
         }
       }
