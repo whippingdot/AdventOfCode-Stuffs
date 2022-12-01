@@ -17,3 +17,5 @@ There is now a bash script added called 'Compile.sh'. You can run this script us
 ### BYE
 
 Wish me luck - I'll need it
+
+- By Whippingdot not Saiga4
