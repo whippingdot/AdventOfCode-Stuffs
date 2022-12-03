@@ -31,7 +31,6 @@ void Day2Part1()
       else if ((enemy == 'A' && c == 'X') || (enemy == 'B' && c == 'Z') || (enemy == 'C' && c == 'Y')) {
         lineValue += 3;
       }
-      //std::cout << "Enemy and C: " << enemy << " and " << c << "\nLineValue = " << lineValue << std::endl;
     }
     answer += lineValue;
     lineValue = 0;
