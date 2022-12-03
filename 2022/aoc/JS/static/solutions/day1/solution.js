@@ -18,7 +18,7 @@ function solution(input) {
     values.reverse()
     values.length = 3;
 
-    return `The most calories carried by a single elf is ${values[0]}, and the number of calories carried by the top three elves is ${values.reduce((a, b) => a + b, 0)}.`
+    return `Part 1 solution: ${values[0]}\nPart 2 solution: ${values.reduce((a, b) => a + b, 0)}`
 }
 
 export default solution;
