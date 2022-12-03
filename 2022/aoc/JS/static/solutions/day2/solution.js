@@ -8,8 +8,6 @@ function solution(input) {
         const opponent = move.charCodeAt(0) - 65;
         const self = move.charCodeAt(2) - 88;
 
-        console.log(opponent, self)
-
         score1 += self + 1;
 
         if(opponent == (self + 1) % 3) continue;
