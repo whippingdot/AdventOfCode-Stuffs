@@ -27,7 +27,7 @@ function solution(input) {
         score2 += self + 1;
     }
 
-    return `Part 1 solution: ${score1}\nPart 2 solution: ${score2}`;
+    return `Part 1 solution: ${score1}\nPart 2 solution: ${score2}`; // Ans1: 13809, Ans2: 12316
 }
 
 export default solution;

@@ -39,7 +39,7 @@ function solution(input) {
 
     }
 
-    return `Part 1 solution: ${sum1}\nPart 2 solution: ${sum2}`;
+    return `Part 1 solution: ${sum1}\nPart 2 solution: ${sum2}`; // Ans1: 7746, Ans2: 2604
 }
 
 export default solution;
