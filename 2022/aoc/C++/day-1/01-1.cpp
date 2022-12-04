@@ -6,20 +6,23 @@ void Day1Part1()
   int answer = 0;
   int value = 0;
   int valuePlus = 0;
-  
 
-  for (std::string &line : input) {
-    if (line == "") {
-      //std::cout << "Ey baby\n";
-      if (valuePlus > answer) {
-        //std::cout << "Ey Royce " << valuePlus << std::endl;
+  for (std::string &line : input)
+  {
+    if (line == "")
+    {
+      // std::cout << "Ey baby\n";
+      if (valuePlus > answer)
+      {
+        // std::cout << "Ey Royce " << valuePlus << std::endl;
         answer = valuePlus;
       }
       valuePlus = 0;
     }
-    else {
+    else
+    {
       value = std::stoi(line);
-      //std::cout << "Ey EEE " << value << std::endl;
+      // std::cout << "Ey EEE " << value << std::endl;
       valuePlus += value;
       value = 0;
     }

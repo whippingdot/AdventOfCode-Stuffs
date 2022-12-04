@@ -8,30 +8,38 @@ void Day2Part1()
 
   char enemy = ' ';
 
-  for (std::string l : input) {
-    for (char c : l) {
-      if (c == 'X') {
+  for (std::string l : input)
+  {
+    for (char c : l)
+    {
+      if (c == 'X')
+      {
         lineValue += 1;
       }
-      else if (c == 'Y') {
+      else if (c == 'Y')
+      {
         lineValue += 2;
       }
-      else if (c == 'Z') {
+      else if (c == 'Z')
+      {
         lineValue += 3;
       }
 
-      if (c == 'A' || c == 'B' || c == 'C') {
+      if (c == 'A' || c == 'B' || c == 'C')
+      {
         enemy = c;
         continue;
       }
 
-      if ((enemy == 'A' && c == 'X') || (enemy == 'B' && c == 'Y') || (enemy == 'C' && c == 'Z')) {
+      if ((enemy == 'A' && c == 'X') || (enemy == 'B' && c == 'Y') || (enemy == 'C' && c == 'Z'))
+      {
         lineValue += 3;
       }
-      else if ((enemy == 'A' && c == 'Y') || (enemy == 'B' && c == 'Z') || (enemy == 'C' && c == 'X')) {
+      else if ((enemy == 'A' && c == 'Y') || (enemy == 'B' && c == 'Z') || (enemy == 'C' && c == 'X'))
+      {
         lineValue += 6;
       }
-      //std::cout << "Enemy and C: " << enemy << " and " << c << "\nLineValue = " << lineValue << std::endl;
+      // std::cout << "Enemy and C: " << enemy << " and " << c << "\nLineValue = " << lineValue << std::endl;
     }
     answer += lineValue;
     lineValue = 0;
