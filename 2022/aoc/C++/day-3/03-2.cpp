@@ -26,29 +26,38 @@ void Day3Part2()
       line1.push_back(c);
     }
 
-    if (counter == 1 || counter == 2) {
+    if (counter == 1 || counter == 2)
+    {
       line3 = line2;
       line2 = line1;
       line1.clear();
       counter++;
-    } else {
+    }
+    else
+    {
       counter = 1;
-      for (char l1 : line1) {
-        for (char l2 : line2) {
-          for (char l3 : line3) {
-              //std::cout << "l1: " << l1 << " & l2: " << l2 << " & l3: " << l3 << std::endl;
-            if (l1 == l2 && l1 == l3 && l2 == l3) {
+      for (char l1 : line1)
+      {
+        for (char l2 : line2)
+        {
+          for (char l3 : line3)
+          {
+            // std::cout << "l1: " << l1 << " & l2: " << l2 << " & l3: " << l3 << std::endl;
+            if (l1 == l2 && l1 == l3 && l2 == l3)
+            {
               found = true;
               answer += priorities[l1];
-              //std::cout << "Answer: " << answer << std::endl;
+              // std::cout << "Answer: " << answer << std::endl;
               break;
             }
           }
-          if (found) {
+          if (found)
+          {
             break;
           }
         }
-        if (found) {
+        if (found)
+        {
           break;
         }
       }

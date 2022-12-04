@@ -14,30 +14,43 @@ void Day4Part1()
   int firstTwo[2] = {0, 0};
   int lastTwo[2] = {0, 0};
 
-  for (std::string l : input) {
-    if (var != 0) {
+  for (std::string l : input)
+  {
+    if (var != 0)
+    {
       curVal = std::stoi(currentVal);
       lastTwo[1] = curVal;
       currentVal = "";
 
-      if ((firstTwo[0] < lastTwo[0] && firstTwo[1] > lastTwo[1]) || (firstTwo[0] > lastTwo[0] && firstTwo[1] < lastTwo[1]) || firstTwo[0] == lastTwo[0] || firstTwo[1] == lastTwo[1]) {
+      if ((firstTwo[0] < lastTwo[0] && firstTwo[1] > lastTwo[1]) || (firstTwo[0] > lastTwo[0] && firstTwo[1] < lastTwo[1]) || firstTwo[0] == lastTwo[0] || firstTwo[1] == lastTwo[1])
+      {
         answer++;
       }
       commaPassed = false;
     }
-    else { var = 1; }
+    else
+    {
+      var = 1;
+    }
 
-    for (char c : l) {
-      if (c == '-') {
+    for (char c : l)
+    {
+      if (c == '-')
+      {
         curVal = std::stoi(currentVal);
         currentVal = "";
-        if (commaPassed) {
+        if (commaPassed)
+        {
           lastTwo[0] = curVal;
         }
-        else { firstTwo[0] = curVal; }
+        else
+        {
+          firstTwo[0] = curVal;
+        }
         continue;
       }
-      else if (c == ',') {
+      else if (c == ',')
+      {
         curVal = std::stoi(currentVal);
         currentVal = "";
         commaPassed = true;
@@ -46,14 +59,14 @@ void Day4Part1()
       }
 
       currentVal += c;
-    } 
-
+    }
   }
 
   curVal = std::stoi(currentVal);
   lastTwo[1] = curVal;
 
-  if ((firstTwo[0] < lastTwo[0] && firstTwo[1] > lastTwo[1]) || (firstTwo[0] > lastTwo[0] && firstTwo[1] < lastTwo[1]) || firstTwo[0] == lastTwo[0] || firstTwo[1] == lastTwo[1]) {
+  if ((firstTwo[0] < lastTwo[0] && firstTwo[1] > lastTwo[1]) || (firstTwo[0] > lastTwo[0] && firstTwo[1] < lastTwo[1]) || firstTwo[0] == lastTwo[0] || firstTwo[1] == lastTwo[1])
+  {
     answer++;
   }
 
