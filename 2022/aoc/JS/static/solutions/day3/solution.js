@@ -14,8 +14,6 @@ function solution(input) {
                 commonChar = comp1[i];
                 break
             }
-
-            comp1.replace(comp1[i], '');
         }
 
         sum1 += commonChar.charCodeAt(0) - (commonChar.toUpperCase() == commonChar ? 38 : 96); 
@@ -31,8 +29,6 @@ function solution(input) {
                 commonChar = first[j];
                 break;
             }
-
-            threeRS[0].replace(first[j], '');
         }
 
         sum2 += commonChar.charCodeAt(0) - (commonChar.toUpperCase() == commonChar ? 38 : 96);
