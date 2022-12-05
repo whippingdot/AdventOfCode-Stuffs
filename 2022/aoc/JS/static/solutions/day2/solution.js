@@ -1,5 +1,7 @@
 function solution(input) {
     const moves = input.split('\n');
+    if(moves[moves.length - 1] == '') moves.pop();
+    
     let score1 = 0;
     let score2 = 0;
 

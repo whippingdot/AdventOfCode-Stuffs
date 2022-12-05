@@ -1,5 +1,6 @@
 function solution(input) {
     const rucksacks = input.split('\n');
+    if(rucksacks[rucksacks.length - 1] == '') rucksacks.pop() 
     let sum1 = 0;
     let sum2 = 0;
 
