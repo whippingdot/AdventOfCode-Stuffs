@@ -1,6 +1,7 @@
 function solution(input) {
-    let start1 = getStart(input, 4);
-    let start2 = getStart(input, 14);
+    const inp = input.replace('\n', '');
+    let start1 = getStart(inp, 4);
+    let start2 = getStart(inp, 14);
 
     return `Part 1 solution: ${start1}\nPart 2 solution: ${start2}`; // Ans1: 1920, Ans2: 2334
 }
