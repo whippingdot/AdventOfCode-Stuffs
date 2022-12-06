@@ -7,6 +7,7 @@
 #include <fstream>
 #include <algorithm>
 #include <typeinfo>
+#include <ctype.h>
 
 std::vector<std::string> read_file(std::string name)
 {
