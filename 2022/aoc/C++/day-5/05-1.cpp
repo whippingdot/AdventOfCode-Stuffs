@@ -1,8 +1,10 @@
 #include "..\aoc.h"
 
-void Day5Part1()
-{
-  std::vector<std::string> input = read_file("C:\\Users\\sanja\\OneDrive\\Documents\\Coding\\GitHubProjects\\AdventOfCode-Stuffs\\2022\\aoc\\C++\\day-5\\input.txt");
+void Day5Part1() {
+  std::vector<std::string> input =
+      read_file("C:"
+                "\\Users\\sanja\\OneDrive\\Documents\\Coding\\GitHubProjects\\A"
+                "dventOfCode-Stuffs\\2022\\aoc\\C++\\day-5\\input.txt");
   std::string answer = "";
   std::string num = "";
 
@@ -21,32 +23,26 @@ void Day5Part1()
 
   std::vector<std::vector<char>> grid = std::vector<std::vector<char>>();
 
-  for (std::string l : input)
-  {
-    for (char c : l)
-    {
-      if ((rowCount2 + 2) % 4 == 0)
-      {
-        // std::cout << "Reach Here\nRow Count and 2: " << rowCount << " " << rowCount2 << "\nC: " << c << std::endl;
-        if (std::isdigit(c))
-        {
+  for (std::string l : input) {
+    for (char c : l) {
+      if ((rowCount2 + 2) % 4 == 0) {
+        // std::cout << "Reach Here\nRow Count and 2: " << rowCount << " " <<
+        // rowCount2 << "\nC: " << c << std::endl;
+        if (std::isdigit(c)) {
           instruct = true;
           break;
         }
-        if (!createdVectors)
-        {
+        if (!createdVectors) {
           grid.push_back(std::vector<char>());
         }
-        if (c != ' ')
-        {
+        if (c != ' ') {
           grid[rowCount].push_back(c);
         }
         rowCount++;
       }
       rowCount2++;
     }
-    if (instruct)
-    {
+    if (instruct) {
       break;
     }
     createdVectors = true;
@@ -56,82 +52,60 @@ void Day5Part1()
 
   // std::cout << grid.size() << std::endl;
 
-  for (int i = 0; i < grid.size(); i++)
-  {
+  for (int i = 0; i < grid.size(); i++) {
     std::reverse(grid[i].begin(), grid[i].end());
     // std::cout << grid[i].size() << std::endl;
   }
 
   instruct = false;
 
-  for (std::string l : input)
-  {
-    if (!instruct)
-    {
-      if (l == "")
-      {
+  for (std::string l : input) {
+    if (!instruct) {
+      if (l == "") {
         instruct = true;
         continue;
       }
       continue;
-    }
-    else
-    {
-      for (char c : l)
-      {
+    } else {
+      for (char c : l) {
         // std::cout << "C: " << c << std::endl;
-        if (c == ' ')
-        {
-          if (space1)
-          {
-            if (!moveDone)
-            {
+        if (c == ' ') {
+          if (space1) {
+            if (!moveDone) {
               moveDone = true;
               // std::cout << num << " 1\n";
               moveValue = stoi(num);
-            }
-            else
-            {
+            } else {
               // std::cout << num << " 2\n";
               fromValue = stoi(num) - 1;
             }
             space1 = false;
-          }
-          else
-          {
-            if (!moveDone)
-            {
+          } else {
+            if (!moveDone) {
               space1 = true;
-              if (firstDone)
-              {
+              if (firstDone) {
                 // std::cout << num << " 3\n";
                 toValue = stoi(num) - 1;
-                for (int i = 1; i < moveValue + 1; i++)
-                {
+                for (int i = 1; i < moveValue + 1; i++) {
                   iIndex = grid[fromValue].size() - i;
-                  // std::cout << grid[fromValue].size() << " and " << iIndex << std::endl;
+                  // std::cout << grid[fromValue].size() << " and " << iIndex <<
+                  // std::endl;
                   grid[toValue].push_back(grid[fromValue][iIndex]);
                 }
-                for (int i = 0; i < moveValue; i++)
-                {
+                for (int i = 0; i < moveValue; i++) {
                   grid[fromValue].pop_back();
                 }
-              }
-              else
-              {
+              } else {
                 firstDone = true;
               }
               num = "";
-            }
-            else
-            {
+            } else {
               space1 = true;
               num = "";
             }
           }
         }
-        if (std::isdigit(c))
-        {
+        if (std::isdigit(c)) {
           num += c;
         }
       }
@@ -140,19 +114,16 @@ void Day5Part1()
     space1 = false;
   }
   toValue = stoi(num) - 1;
-  for (int i = 1; i < moveValue + 1; i++)
-  {
+  for (int i = 1; i < moveValue + 1; i++) {
     iIndex = grid[fromValue].size() - i;
     // std::cout << grid[fromValue].size() << " and " << iIndex << std::endl;
     grid[toValue].push_back(grid[fromValue][iIndex]);
   }
-  for (int i = 0; i < moveValue; i++)
-  {
+  for (int i = 0; i < moveValue; i++) {
     grid[fromValue].pop_back();
   }
 
-  for (int i = 0; i < grid.size(); i++)
-  {
+  for (int i = 0; i < grid.size(); i++) {
     iIndex = grid[i].size() - 1;
     answer += grid[i][iIndex];
   }
@@ -160,8 +131,7 @@ void Day5Part1()
   std::cout << "The answer is " << answer << std::endl;
 }
 
-int main()
-{
+int main() {
   Day5Part1();
   return 0;
 }

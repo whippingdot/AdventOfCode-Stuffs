@@ -1,8 +1,10 @@
 #include "..\aoc.h"
 
-void Day1Part2()
-{
-  std::vector<std::string> input = read_file("C:\\Users\\sanja\\OneDrive\\Documents\\Coding\\GitHubProjects\\AdventOfCode-Stuffs\\2022\\aoc\\C++\\day-1\\input.txt");
+void Day1Part2() {
+  std::vector<std::string> input =
+      read_file("C:"
+                "\\Users\\sanja\\OneDrive\\Documents\\Coding\\GitHubProjects\\A"
+                "dventOfCode-Stuffs\\2022\\aoc\\C++\\day-1\\input.txt");
   int answer = 0;
   int value = 0;
   int valuePlus = 0;
@@ -12,46 +14,37 @@ void Day1Part2()
 
   bool changed = false;
 
-  for (std::string &line : input)
-  {
-    if (line == "")
-    {
-      for (int i = 1; i < 4; i++)
-      {
-        if (valuePlus > topThree[i - 1])
-        {
-          if (topThree[i - 1] < topThree[leastValue] || topThree[i - 1] == 0)
-          {
+  for (std::string &line : input) {
+    if (line == "") {
+      for (int i = 1; i < 4; i++) {
+        if (valuePlus > topThree[i - 1]) {
+          if (topThree[i - 1] < topThree[leastValue] || topThree[i - 1] == 0) {
             leastValue = i - 1;
             changed = true;
           }
         }
       }
-      if (changed != false)
-      {
+      if (changed != false) {
         topThree[leastValue] = valuePlus;
       }
       valuePlus = 0;
       leastValue = 0;
       changed = false;
-    }
-    else
-    {
+    } else {
       value = std::stoi(line);
       valuePlus += value;
       value = 0;
     }
   }
 
-  for (int i = 0; i < 3; i++)
-  {
+  for (int i = 0; i < 3; i++) {
     answer += topThree[i];
   }
-  std::cout << "The highest consecutive numbers added up together is " << answer << std::endl;
+  std::cout << "The highest consecutive numbers added up together is " << answer
+            << std::endl;
 }
 
-int main()
-{
+int main() {
   Day1Part2();
   return 0;
 }

@@ -1,8 +1,10 @@
 #include "..\aoc.h"
 
-void Day5Part2()
-{
-  std::vector<std::string> input = read_file("C:\\Users\\sanja\\OneDrive\\Documents\\Coding\\GitHubProjects\\AdventOfCode-Stuffs\\2022\\aoc\\C++\\day-5\\input.txt");
+void Day5Part2() {
+  std::vector<std::string> input =
+      read_file("C:"
+                "\\Users\\sanja\\OneDrive\\Documents\\Coding\\GitHubProjects\\A"
+                "dventOfCode-Stuffs\\2022\\aoc\\C++\\day-5\\input.txt");
   std::string answer = "";
   std::string num = "";
 
@@ -21,31 +23,24 @@ void Day5Part2()
 
   std::vector<std::vector<char>> grid = std::vector<std::vector<char>>();
 
-  for (std::string l : input)
-  {
-    for (char c : l)
-    {
-      if ((rowCount2 + 2) % 4 == 0)
-      {
-        if (std::isdigit(c))
-        {
+  for (std::string l : input) {
+    for (char c : l) {
+      if ((rowCount2 + 2) % 4 == 0) {
+        if (std::isdigit(c)) {
           instruct = true;
           break;
         }
-        if (!createdVectors)
-        {
+        if (!createdVectors) {
           grid.push_back(std::vector<char>());
         }
-        if (c != ' ')
-        {
+        if (c != ' ') {
           grid[rowCount].push_back(c);
         }
         rowCount++;
       }
       rowCount2++;
     }
-    if (instruct)
-    {
+    if (instruct) {
       break;
     }
     createdVectors = true;
@@ -53,76 +48,53 @@ void Day5Part2()
     rowCount2 = 1;
   }
 
-  for (int i = 0; i < grid.size(); i++)
-  {
+  for (int i = 0; i < grid.size(); i++) {
     std::reverse(grid[i].begin(), grid[i].end());
   }
 
   instruct = false;
 
-  for (std::string l : input)
-  {
-    if (!instruct)
-    {
-      if (l == "")
-      {
+  for (std::string l : input) {
+    if (!instruct) {
+      if (l == "") {
         instruct = true;
         continue;
       }
       continue;
-    }
-    else
-    {
-      for (char c : l)
-      {
-        if (c == ' ')
-        {
-          if (space1)
-          {
-            if (!moveDone)
-            {
+    } else {
+      for (char c : l) {
+        if (c == ' ') {
+          if (space1) {
+            if (!moveDone) {
               moveDone = true;
               moveValue = stoi(num);
-            }
-            else
-            {
+            } else {
               fromValue = stoi(num) - 1;
             }
             space1 = false;
-          }
-          else
-          {
-            if (!moveDone)
-            {
+          } else {
+            if (!moveDone) {
               space1 = true;
-              if (firstDone)
-              {
+              if (firstDone) {
                 toValue = stoi(num) - 1;
-                for (int i = moveValue; i > 0; i--)
-                {
+                for (int i = moveValue; i > 0; i--) {
                   iIndex = grid[fromValue].size() - i;
                   grid[toValue].push_back(grid[fromValue][iIndex]);
                 }
-                for (int i = 0; i < moveValue; i++)
-                {
+                for (int i = 0; i < moveValue; i++) {
                   grid[fromValue].pop_back();
                 }
-              }
-              else
-              {
+              } else {
                 firstDone = true;
               }
               num = "";
-            }
-            else
-            {
+            } else {
               space1 = true;
               num = "";
             }
           }
         }
-        if (std::isdigit(c))
-        {
+        if (std::isdigit(c)) {
           num += c;
         }
       }
@@ -131,18 +103,15 @@ void Day5Part2()
     space1 = false;
   }
   toValue = stoi(num) - 1;
-  for (int i = moveValue; i > 0; i--)
-  {
+  for (int i = moveValue; i > 0; i--) {
     iIndex = grid[fromValue].size() - i;
     grid[toValue].push_back(grid[fromValue][iIndex]);
   }
-  for (int i = 0; i < moveValue; i++)
-  {
+  for (int i = 0; i < moveValue; i++) {
     grid[fromValue].pop_back();
   }
 
-  for (int i = 0; i < grid.size(); i++)
-  {
+  for (int i = 0; i < grid.size(); i++) {
     iIndex = grid[i].size() - 1;
     answer += grid[i][iIndex];
   }
@@ -150,8 +119,7 @@ void Day5Part2()
   std::cout << "The answer is " << answer << std::endl;
 }
 
-int main()
-{
+int main() {
   Day5Part2();
   return 0;
 }
