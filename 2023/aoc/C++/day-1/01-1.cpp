@@ -20,24 +20,22 @@ void Day1Part1()
         if (!firstNumber)
         {
           tens = c;
-          std::cout << "Tens: " << tens << std::endl;
           firstNumber = true;
         }
-        else {
+        else
+        {
           ones = c;
           notherOne = true;
         }
       }
     }
-    if (!notherOne) {
+    if (!notherOne)
+    {
       ones = tens;
     }
-    std::cout << "Ones: " << ones << std::endl;
     answerS += tens;
     answerS += ones;
-    std::cout << answerS << std::endl;
     answer += std::stoi(answerS);
-    std::cout << answer << std::endl;
     answerS = "";
     firstNumber = false;
     notherOne = false;
