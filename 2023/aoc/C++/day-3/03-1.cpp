@@ -19,9 +19,9 @@ void Day3Part1()
         for (int z = y; std::find(numbers.begin(), numbers.end(), input[x][z]) != numbers.end(); z++)
         {
           integers.push_back(input[x][z]);
-          std::cout << "Pushing: " << input[x][z] << std::endl;
           max = z;
-          if (!specTouch) {
+          if (!specTouch)
+          {
             if (x != 0 && !(x == (input.size() - 1)) && !(z == (input[x].size() - 1)) && z != 0)
             {
               if (((std::find(numbers.begin(), numbers.end(), input[x - 1][z - 1]) == numbers.end()) && (input[x - 1][z - 1] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x - 1][z]) == numbers.end()) && (input[x - 1][z] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x - 1][z + 1]) == numbers.end()) && (input[x - 1][z + 1] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x][z - 1]) == numbers.end()) && (input[x][z - 1] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x][z + 1]) == numbers.end()) && (input[x][z + 1] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x + 1][z - 1]) == numbers.end()) && (input[x + 1][z - 1] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x + 1][z]) == numbers.end()) && (input[x + 1][z] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x + 1][z + 1]) == numbers.end()) && (input[x + 1][z + 1] != '.')))
@@ -29,49 +29,57 @@ void Day3Part1()
                 specTouch = true;
               }
             }
-            else if (x == 0 && !(z == (input[x].size() - 1)) && z != 0) {
+            else if (x == 0 && !(z == (input[x].size() - 1)) && z != 0)
+            {
               if (((std::find(numbers.begin(), numbers.end(), input[x][z - 1]) == numbers.end()) && (input[x][z - 1] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x][z + 1]) == numbers.end()) && (input[x][z + 1] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x + 1][z - 1]) == numbers.end()) && (input[x + 1][z - 1] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x + 1][z]) == numbers.end()) && (input[x + 1][z] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x + 1][z + 1]) == numbers.end()) && (input[x + 1][z + 1] != '.')))
               {
                 specTouch = true;
               }
             }
-            else if (x == (input.size() - 1) && !(z == (input[x].size() - 1)) && z != 0) {
+            else if (x == (input.size() - 1) && !(z == (input[x].size() - 1)) && z != 0)
+            {
               if (((std::find(numbers.begin(), numbers.end(), input[x - 1][z - 1]) == numbers.end()) && (input[x - 1][z - 1] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x - 1][z]) == numbers.end()) && (input[x - 1][z] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x - 1][z + 1]) == numbers.end()) && (input[x - 1][z + 1] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x][z - 1]) == numbers.end()) && (input[x][z - 1] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x][z + 1]) == numbers.end()) && (input[x][z + 1] != '.')))
               {
                 specTouch = true;
               }
             }
-            else if (x != 0 && !(x == (input.size() - 1)) && z == 0) {
+            else if (x != 0 && !(x == (input.size() - 1)) && z == 0)
+            {
               if (((std::find(numbers.begin(), numbers.end(), input[x - 1][z]) == numbers.end()) && (input[x - 1][z] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x - 1][z + 1]) == numbers.end()) && (input[x - 1][z + 1] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x][z + 1]) == numbers.end()) && (input[x][z + 1] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x + 1][z]) == numbers.end()) && (input[x + 1][z] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x + 1][z + 1]) == numbers.end()) && (input[x + 1][z + 1] != '.')))
               {
                 specTouch = true;
               }
             }
-            else if (x != 0 && !(x == (input.size() - 1)) && z == (input[x].size() - 1)) {
+            else if (x != 0 && !(x == (input.size() - 1)) && z == (input[x].size() - 1))
+            {
               if (((std::find(numbers.begin(), numbers.end(), input[x - 1][z - 1]) == numbers.end()) && (input[x - 1][z - 1] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x - 1][z]) == numbers.end()) && (input[x - 1][z] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x][z - 1]) == numbers.end()) && (input[x][z - 1] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x + 1][z - 1]) == numbers.end()) && (input[x + 1][z - 1] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x + 1][z]) == numbers.end()) && (input[x + 1][z] != '.')))
               {
                 specTouch = true;
               }
             }
-            else if (x == 0 && z == 0) {
+            else if (x == 0 && z == 0)
+            {
               if (((std::find(numbers.begin(), numbers.end(), input[x][z + 1]) == numbers.end()) && (input[x][z + 1] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x + 1][z]) == numbers.end()) && (input[x + 1][z] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x + 1][z + 1]) == numbers.end()) && (input[x + 1][z + 1] != '.')))
               {
                 specTouch = true;
               }
             }
-            else if (x == 0 && z == (input[x].size() - 1)) {
+            else if (x == 0 && z == (input[x].size() - 1))
+            {
               if (((std::find(numbers.begin(), numbers.end(), input[x][z - 1]) == numbers.end()) && (input[x][z - 1] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x + 1][z - 1]) == numbers.end()) && (input[x + 1][z - 1] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x + 1][z]) == numbers.end()) && (input[x + 1][z] != '.')))
               {
                 specTouch = true;
               }
             }
-            else if (x == (input.size() - 1) && z == 0) {
+            else if (x == (input.size() - 1) && z == 0)
+            {
               if (((std::find(numbers.begin(), numbers.end(), input[x - 1][z]) == numbers.end()) && (input[x - 1][z] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x - 1][z + 1]) == numbers.end()) && (input[x - 1][z + 1] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x][z + 1]) == numbers.end()) && (input[x][z + 1] != '.')))
               {
                 specTouch = true;
               }
             }
-            else if (x == (input.size() - 1) && (z == input[x].size() - 1)) {
+            else if (x == (input.size() - 1) && (z == input[x].size() - 1))
+            {
               if (((std::find(numbers.begin(), numbers.end(), input[x - 1][z - 1]) == numbers.end()) && (input[x - 1][z - 1] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x - 1][z]) == numbers.end()) && (input[x - 1][z] != '.')) || ((std::find(numbers.begin(), numbers.end(), input[x][z - 1]) == numbers.end()) && (input[x][z - 1] != '.')))
               {
                 specTouch = true;
@@ -80,9 +88,10 @@ void Day3Part1()
           }
         }
         y = max;
-        if (specTouch) {
-          for (int i = 0; i < integers.size(); i++) {
-            std::cout << integers[i] << std::endl;
+        if (specTouch)
+        {
+          for (int i = 0; i < integers.size(); i++)
+          {
             answerS += integers[i];
           }
           answer += std::stoi(answerS);
