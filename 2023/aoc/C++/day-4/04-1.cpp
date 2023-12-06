@@ -1,6 +1,6 @@
 #include "C:\Users\sanja\OneDrive\Documents\Coding\GitHubProjects\AdventOfCode-Stuffs\2023\aoc\aoc.h"
 
-void Day1Part1()
+void Day4Part1()
 {
   std::vector<std::string> input =
       read_file("C:\\Users\\sanja\\OneDrive\\Documents\\Coding\\GitHubProjects\\AdventOfCode-Stuffs\\2023\\aoc\\C++\\day-4\\input.txt");
@@ -41,6 +41,6 @@ void Day1Part1()
 
 int main()
 {
-  Day1Part1();
+  Day4Part1();
   return 0;
 }
