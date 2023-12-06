@@ -1,0 +1,2 @@
+# Day 5
+For the day 5 solution I have thought of a program that has a function with four inputs, the three numbers given on each line, and using those inputs and a vector with all the seed numbers / initial numbers we will convert each one one by one if it is in the given range.
