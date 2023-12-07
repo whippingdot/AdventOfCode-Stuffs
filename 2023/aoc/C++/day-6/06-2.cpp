@@ -16,13 +16,11 @@ void Day6Part2()
   {
     if (std::find(numbers.begin(), numbers.end(), input[0][i]) != numbers.end())
     {
-      std::cout << input[0][i] << std::endl;
       stringy += input[0][i];
     }
   }
   // New function I learnt to convert a string to long long int. To convert to long int you need strtol
   time = std::strtoll(stringy.c_str(), &endptr, base);
-  std::cout << time << std::endl;
   stringy = "";
 
   for (int i = 10; i < input[1].size(); i++)
