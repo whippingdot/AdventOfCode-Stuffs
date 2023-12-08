@@ -8,6 +8,9 @@
 #include <algorithm>
 #include <typeinfo>
 #include <ctype.h>
+#include <format>
+
+std::vector<char> numbers = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
 
 std::vector<std::string> read_file(std::string name)
 {
