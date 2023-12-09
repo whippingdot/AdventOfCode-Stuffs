@@ -1,4 +1,5 @@
 # Logs and Ideas
+
 ## Day 4
 
 ### Part 2
@@ -12,3 +13,5 @@ Okay after the short brainstorming from above, I realized it was easy to impleme
 For the day 5 solution I have thought of a program that has a function with four inputs, the three numbers given on each line, and using those inputs and a vector with all the seed numbers / initial numbers we will convert each one one by one if it is in the given range.
 
 Damn I loved this day's part 1 solution. It was so fun to make and took 2 hrs. I am happy that I was able to do it as in previous years I would've not found a proper solution and might have given up. It was surprisingly easy after I got how to frame the solution. After getting the seeds from the first line, I faced almost no errors (a first like before) after completing the rest of the code, except one instance where I forgot you could use greater than and less than operators to determine whether a number was in a range and instead was using a number from 0 - a big number which took way too long for my computer (10 digit operations).
+
+Bro what is part 2 🤦🤦
