@@ -13,7 +13,7 @@ int found(std::string hand, char card)
   return foun;
 }
 
-void Day7Part1()
+void Day7Part2()
 {
   std::vector<std::string> input =
       read_file("C:\\Users\\sanja\\OneDrive\\Documents\\Coding\\GitHubProjects\\AdventOfCode-Stuffs\\2023\\aoc\\C++\\day-7\\input.txt");
@@ -26,11 +26,15 @@ void Day7Part1()
   std::string tStringy = "";
   char oldC = ' ';
   int answer = 0;
+  bool fourCaught = false;
   bool threeCaught = false;
   bool twoCaught = false;
   bool twoCaughtS = false;
   bool founde = false;
   bool inserted = false;
+  bool oneJ = false;
+  bool twoJ = false;
+  bool threeJ = false;
 
   for (int i = 0; i < input.size(); i++)
   {
@@ -49,34 +53,34 @@ void Day7Part1()
         numerals[j + 1] = 11;
         break;
       case 'J':
-        numerals[j + 1] = 10;
+        numerals[j + 1] = 1;
         break;
       case 'T':
-        numerals[j + 1] = 9;
+        numerals[j + 1] = 10;
         break;
       case '9':
-        numerals[j + 1] = 8;
+        numerals[j + 1] = 9;
         break;
       case '8':
-        numerals[j + 1] = 7;
+        numerals[j + 1] = 8;
         break;
       case '7':
-        numerals[j + 1] = 6;
+        numerals[j + 1] = 7;
         break;
       case '6':
-        numerals[j + 1] = 5;
+        numerals[j + 1] = 6;
         break;
       case '5':
-        numerals[j + 1] = 4;
+        numerals[j + 1] = 5;
         break;
       case '4':
-        numerals[j + 1] = 3;
+        numerals[j + 1] = 4;
         break;
       case '3':
-        numerals[j + 1] = 2;
+        numerals[j + 1] = 3;
         break;
       case '2':
-        numerals[j + 1] = 1;
+        numerals[j + 1] = 2;
         break;
       default:
         break;
@@ -97,65 +101,101 @@ void Day7Part1()
   {
     for (char c : cards[i])
     {
-      switch (found(cards[i], c))
+      if (c != 'J')
       {
-      case 5:
-        numbers[i][0] = 7;
-        founde = true;
-        break;
-      case 4:
-        numbers[i][0] = 6;
-        founde = true;
-        break;
-      case 3:
-        threeCaught = true;
-        break;
-      case 2:
-        if (twoCaught && oldC != c)
+        switch (found(cards[i], c))
         {
-          twoCaughtS = true;
+        case 5:
+          numbers[i][0] = 7;
+          founde = true;
+          break;
+        case 4:
+          fourCaught = true;
+          break;
+        case 3:
+          threeCaught = true;
+          break;
+        case 2:
+          if (twoCaught && oldC != c)
+          {
+            twoCaughtS = true;
+          }
+          else
+          {
+            twoCaught = true;
+            oldC = c;
+          }
+          break;
+        default:
+          break;
         }
-        else
+      }
+      else
+      {
+        if (found(cards[i], c) == 1)
         {
-          twoCaught = true;
-          oldC = c;
+          oneJ = true;
         }
-        break;
-      default:
-        break;
+        else if (found(cards[i], c) == 2)
+        {
+          twoJ = true;
+        }
+        else if (found(cards[i], c) == 3)
+        {
+          threeJ = true;
+        }
+        else if (found(cards[i], c) >= 4)
+        {
+          numbers[i][0] = 7;
+          founde = true;
+        }
       }
       if (founde)
       {
         break;
       }
-      else if (twoCaught && threeCaught)
+    }
+    if (!founde)
+    {
+      if ((fourCaught && oneJ) || (twoJ && threeCaught) || (threeJ && twoCaught))
+      {
+        numbers[i][0] = 7;
+      }
+      else if ((fourCaught && !oneJ) || (threeJ && !twoCaught && !threeCaught) || (twoJ && twoCaught) || (oneJ && threeCaught))
+      {
+        numbers[i][0] = 6;
+      }
+      else if ((twoCaught && twoCaughtS && oneJ) || (twoCaught && threeCaught))
       {
         numbers[i][0] = 5;
-        break;
       }
-      else if (twoCaught && twoCaughtS)
+      else if ((twoJ && !twoCaught && !threeCaught) || (threeCaught && !twoCaught && !oneJ && !twoJ) || (oneJ && twoCaught && !twoCaughtS))
+      {
+        numbers[i][0] = 4;
+      }
+      else if (twoCaught && twoCaughtS && !oneJ)
       {
         numbers[i][0] = 3;
-        break;
+      }
+      else if ((oneJ && !twoCaught && !threeCaught && !fourCaught) || (twoCaught && !threeCaught && !oneJ && !twoJ && !threeJ))
+      {
+        numbers[i][0] = 2;
+      }
+      else
+      {
+        numbers[i][0] = 1;
       }
     }
-    if (twoCaught && !twoCaughtS && !threeCaught)
-    {
-      numbers[i][0] = 2;
-    }
-    else if (threeCaught && !twoCaught)
-    {
-      numbers[i][0] = 4;
-    }
-    else if (!twoCaught && !threeCaught && !founde)
-    {
-      numbers[i][0] = 1;
-    }
+
     twoCaught = false;
     twoCaughtS = false;
     threeCaught = false;
     founde = false;
     oldC = ' ';
+    oneJ = false;
+    twoJ = false;
+    threeJ = false;
+    fourCaught = false;
   }
 
   for (int i = 1; i < numbers.size(); i++)
@@ -237,6 +277,6 @@ void Day7Part1()
 
 int main()
 {
-  Day7Part1();
+  Day7Part2();
   return 0;
 }
