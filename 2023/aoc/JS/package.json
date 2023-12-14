@@ -1,0 +1,14 @@
+{
+    "name": "aoc_solutions",
+    "version": "1.0.0",
+    "description": "To prevent CORS errors while accessing local files and modules.",
+    "main": "app.js",
+    "scripts": {
+        "start": "nodemon app.js"
+    },
+    "author": "saiga4",
+    "dependencies": {
+        "express": "^4.18.2",
+        "nodemon": "^2.0.22"
+    }
+}
