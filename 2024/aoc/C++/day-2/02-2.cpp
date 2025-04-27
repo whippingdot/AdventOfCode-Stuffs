@@ -1,4 +1,5 @@
 #include "C:\Users\sanja\OneDrive\Documents\Coding\GitHubProjects\AdventOfCode-Stuffs\2024\aoc\aoc.h"
+#include <print>
 
 void Day2Part2()
 {
@@ -23,7 +24,7 @@ void Day2Part2()
       if (line[i] == ' ' || i == line.size() - 1)
       {
         if (i == 2)
-        numP = num;
+          numP = num;
         num = std::stoi(numS);
         numS = "";
         if (numP != 0 && !increase && !decrease)
@@ -41,13 +42,15 @@ void Day2Part2()
         {
           if (!(numP < num && num - numP <= 3))
           {
-            if (firstTime) {
+            if (firstTime)
+            {
               num = numP;
               firstTime = false;
               continue;
             }
             increase = false;
-            std::cout << line << "\n" << numP << " " << num << std::endl;
+            std::cout << line << "\n"
+                      << numP << " " << num << std::endl;
             // issue is 24 26 23 ... where 26 should be skipped (check if n3 follows same pattern as n2. If not, check n4 following pattern with n2 and if it does continue normally otherwise skip n2 instead (i++ and firstTime = false). Store the first number till i3 finishes
             break;
           }
@@ -56,13 +59,15 @@ void Day2Part2()
         {
           if (!(numP > num && numP - num <= 3))
           {
-            if (firstTime) {
+            if (firstTime)
+            {
               num = numP;
               firstTime = false;
               continue;
             }
             decrease = false;
-            std::cout << line << "\n" << numP << " " << num << std::endl;
+            std::cout << line << "\n"
+                      << numP << " " << num << std::endl;
             break;
           }
         }
@@ -79,7 +84,8 @@ void Day2Part2()
     firstTime = true;
   }
 
-  std::cout << "The answer is " << answer << std::endl;
+  std::println("The answer is {}", answer);
+  // std::cout << "The answer is " << answer << std::endl;
 }
 
 int main()
